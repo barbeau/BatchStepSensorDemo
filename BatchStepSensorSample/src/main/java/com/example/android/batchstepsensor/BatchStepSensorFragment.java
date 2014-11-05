@@ -25,11 +25,11 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-import com.example.android.common.logger.Log;
 import com.example.android.batchstepsensor.cardstream.Card;
 import com.example.android.batchstepsensor.cardstream.CardStream;
 import com.example.android.batchstepsensor.cardstream.CardStreamFragment;
 import com.example.android.batchstepsensor.cardstream.OnCardClickListener;
+import com.example.android.common.logger.Log;
 
 public class BatchStepSensorFragment extends Fragment implements OnCardClickListener {
 
@@ -346,6 +346,9 @@ public class BatchStepSensorFragment extends Fragment implements OnCardClickList
                     // initial value
                     mCounterSteps = (int) event.values[0];
                 }
+
+                Log.d(TAG, "event.values[0]=" + event.values[0]);
+                Log.d(TAG, "event.timestamp=" + event.timestamp);
 
                 // Calculate steps taken based on first counter value received.
                 mSteps = (int) event.values[0] - mCounterSteps;

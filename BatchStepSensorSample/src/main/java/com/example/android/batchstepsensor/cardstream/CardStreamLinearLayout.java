@@ -37,8 +37,8 @@ import android.view.ViewParent;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
-import com.example.android.common.logger.Log;
 import com.example.android.batchstepsensor.R;
+import com.example.android.common.logger.Log;
 
 import java.util.ArrayList;
 
@@ -140,14 +140,14 @@ public class CardStreamLinearLayout extends LinearLayout {
         @Override
         public void startTransition(LayoutTransition transition, ViewGroup container, View
                 view, int transitionType) {
-            Log.d(TAG, "Start LayoutTransition animation:" + transitionType);
+            // Log.d(TAG, "Start LayoutTransition animation:" + transitionType);
         }
 
         @Override
         public void endTransition(LayoutTransition transition, ViewGroup container,
                                   final View view, int transitionType) {
 
-            Log.d(TAG, "End LayoutTransition animation:" + transitionType);
+            // Log.d(TAG, "End LayoutTransition animation:" + transitionType);
             if (transitionType == LayoutTransition.APPEARING) {
                 final View area = view.findViewById(R.id.card_actionarea);
                 if (area != null) {
@@ -165,7 +165,7 @@ public class CardStreamLinearLayout extends LinearLayout {
         @Override
         public void onChildViewAdded(final View parent, final View child) {
 
-            Log.d(TAG, "child is added: " + child);
+            // Log.d(TAG, "child is added: " + child);
 
             ViewParent scrollView = parent.getParent();
             if (scrollView != null && scrollView instanceof ScrollView) {
@@ -181,7 +181,7 @@ public class CardStreamLinearLayout extends LinearLayout {
 
         @Override
         public void onChildViewRemoved(View parent, View child) {
-            Log.d(TAG, "child is removed: " + child);
+            // Log.d(TAG, "child is removed: " + child);
             mFixedViewList.remove(child);
         }
     };
@@ -233,7 +233,7 @@ public class CardStreamLinearLayout extends LinearLayout {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-        Log.d(TAG, "onLayout: " + changed);
+        // Log.d(TAG, "onLayout: " + changed);
 
         if( changed && !mLayouted ){
             mLayouted = true;
