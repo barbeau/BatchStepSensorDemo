@@ -316,6 +316,9 @@ public class BatchStepSensorFragment extends Fragment implements OnCardClickList
         @Override
         public void onSensorChanged(SensorEvent event) {
 
+            Log.d(TAG, "event.values[0]=" + event.values[0]);
+            Log.d(TAG, "event.timestamp=" + event.timestamp);
+
             // store the delay of this event
             recordDelay(event);
             final String delayString = getDelayString();
@@ -346,9 +349,6 @@ public class BatchStepSensorFragment extends Fragment implements OnCardClickList
                     // initial value
                     mCounterSteps = (int) event.values[0];
                 }
-
-                Log.d(TAG, "event.values[0]=" + event.values[0]);
-                Log.d(TAG, "event.timestamp=" + event.timestamp);
 
                 // Calculate steps taken based on first counter value received.
                 mSteps = (int) event.values[0] - mCounterSteps;
