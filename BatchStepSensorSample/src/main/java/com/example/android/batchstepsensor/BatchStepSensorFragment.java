@@ -22,7 +22,9 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 
 import com.example.android.batchstepsensor.cardstream.Card;
@@ -318,6 +320,10 @@ public class BatchStepSensorFragment extends Fragment implements OnCardClickList
 
             Log.d(TAG, "event.values[0]=" + event.values[0]);
             Log.d(TAG, "event.timestamp=" + event.timestamp);
+            Log.d(TAG, "System.nanotime()=" + System.nanoTime());
+            if (Build.VERSION.SDK_INT >= +Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                Log.d(TAG, "SystemClock.elapsedRealtimeNanos()=" + SystemClock.elapsedRealtimeNanos());
+            }
 
             // store the delay of this event
             recordDelay(event);
