@@ -324,6 +324,7 @@ public class BatchStepSensorFragment extends Fragment implements OnCardClickList
             if (Build.VERSION.SDK_INT >= +Build.VERSION_CODES.JELLY_BEAN_MR1) {
                 Log.d(TAG, "SystemClock.elapsedRealtimeNanos()=" + SystemClock.elapsedRealtimeNanos());
             }
+            Log.d(TAG, "System.currentTimeMillis=" + System.currentTimeMillis());
 
             // store the delay of this event
             recordDelay(event);
